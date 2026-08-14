@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Dear ! ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            color: #4a4a4a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(255, 105, 180, 0.2);
+            text-align: center;
+            position: relative;
+            min-height: 550px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.6s ease-in-out forwards;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #d81b60;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: #e91e63;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .btn-nav {
+            background: #e91e63;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+
+        .btn-nav:hover {
+            background: #c2185b;
+            transform: scale(1.05);
+        }
+
+        /* Page 1 Specific */
+        .big-heart {
+            font-size: 80px;
+            animation: pulse 1.5s infinite;
+            margin: 20px 0;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        /* Page 2 Envelope */
+        .envelope {
+            background: #ff80ab;
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+
+        .letter {
+            display: none;
+            background: white;
+            color: #333;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            text-align: left;
+            border: 2px dashed #ff80ab;
+        }
+
+        /* Page 3 Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .polaroid span {
+            font-size: 0.8rem;
+            color: #777;
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* Page 4 Reasons */
+        .reason-card {
+            background: #ffe0b2;
+            padding: 12px;
+            border-radius: 10px;
+            margin: 8px 0;
+            cursor: pointer;
+            font-weight: bold;
+            color: #e65100;
+        }
+
+        /* Page 5 Cake */
+        .cake {
+            font-size: 100px;
+            cursor: pointer;
+            margin: 20px 0;
+            display: inline-block;
+        }
+
+        /* Page 6 Coupons */
+        .coupon {
+            background: #e1bee7;
+            border: 2px dashed #8e24aa;
+            padding: 12px;
+            border-radius: 10px;
+            margin: 10px 0;
+            color: #4a148c;
+            font-weight: bold;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn-small {
+            background: #888;
+            padding: 8px 15px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- PAGE 1: Welcome -->
+    <div class="page active" id="page1">
+        <h1>Hey Beautiful Girl! ✨</h1>
+        <div class="big-heart">💖</div>
+        <p>Tum meri life ka woh beautiful part ho jiske bina sab kuch adhura sa lagta hai. 🥹❤️ 🌍</p>
+        <p>Aapke liye ek chota sa surprise banaya hai. Are you ready?</p>
+        <button class="btn-nav" onclick="nextPage(2)">Let's Begin ➔</button>
+    </div>
+
+    <!-- PAGE 2: Happy Birthday Wish & Letter -->
+    <div class="page" id="page2">
+        <h1>Happy Birthday My Love! 🎉</h1>
+        <p>Tum meri life ki sabse khoobsurat gift ho. Neeche diye envelope par click karke mera secret message padho!</p>
+        
+        <div class="envelope" onclick="openLetter()">
+            ✉️ Click to Open Secret Letter
+        </div>
+        <div class="letter" id="secretLetter">
+            <p><strong>Meri Pyari Shabo,</strong></p>
+            <p>Happy Birthday! Tumse milna meri life ka ek coincidence tha,
+lekin tumse pyaar karna meri zindagi ka sabse khoobsurat decision hai. ❤️
+
+Tum meri woh khushi ho jise main kabhi khona nahi chahta. 🥹❤️
+Pata nahi future mein kya likha hai,
+pata nahi tum mere liye kya feel karti ho…
+shayad mujhe ye bhi nahi pata ki tum mujhse utna pyaar karti ho ya nahi. 🥺
+
+Isliye main tumse “I Love You” bolkar tumse kisi jawab ki umeed nahi rakhna chahta.
+Bas itna sach hai ki main tumse be-inteha pyaar karta hoon. ❤️♾️
+Aur shayad apne feelings ko words mein kabhi properly explain bhi nahi kar paunga.
+
+Jab bhi main tumhe dekhta hoon na,
+mere dimaag mein pata nahi kitne saare songs chalne lagte hain… ❤️
+Lekin un sab mein se ek song ki kuch lines mujhe sabse zyada tumhari yaad dilati hain—
+
+“Dekha karun, saari umar…
+Saari umar…
+Tere nishaan…
+Be-intehaan…” ❤️
+
+Sach kahun toh,
+main bhi tumhe saari umar dekhta rehna chahta hoon.
+Tumhari smile, tumhari aankhein, tumhari har chhoti si baat…
+sab kuch mere liye itna special hai ki kabhi mann hi nahi karta tumse nazar hataun. 🥹❤️
+
+Koi kasar na rahe, meri khabar na rahe…
+Bas tumhari mohabbat mein itna kho jaun,
+ki duniya kuch bhi kahe, mujhe sirf tum nazar aao. ❤️♾️
+
+Tum mere liye kya ho, ye shayad main kabhi words mein nahi bata paunga…
+Bas itna samajh lo—
+tum meri life ka woh hissa ho jise main dil se kabhi khona nahi chahta. ❤️🫶</p>
+        </div>
+
+        <div class="footer-nav">
+            <button class="btn-nav btn-small" onclick="nextPage(1)">⬅️ Back</button>
+            <button class="btn-nav" onclick="nextPage(3)">Next: Memories ➔</button>
+        </div>
+    </div>
+
+    <!-- PAGE 3: Photo Gallery -->
+    <div class="page" id="page3">
+        <h2>Our Sweet Memories 📸</h2>
+        <p>Kuch khaas lamhe jo mere dil ke bohot paas hain...</p>
+        
+        <div class="gallery">
+            <div class="polaroid">
+                <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=400&q=80" alt="Memory 1">
+                <span>Your Cute Smile</span>
+            </div>
+            <div class="polaroid">
+                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=400&q=80" alt="Memory 2">
+                <span>Our Favorite Date</span>
+            </div>
+            <div class="polaroid">
+                <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=400&q=80" alt="Memory 3">
+                <span>Crazy Moments</span>
+            </div>
+            <div class="polaroid">
+                <img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=400&q=80" alt="Memory 4">
+                <span>My Favorite Person</span>
+            </div>
+        </div>
+
+        <div class="footer-nav">
+            <button class="btn-nav btn-small" onclick="nextPage(2)">⬅️ Back</button>
+            <button class="btn-nav" onclick="nextPage(4)">Next: Reasons ➔</button>
+        </div>
+    </div>
+
+    <!-- PAGE 4: Reasons Why I Love You -->
+    <div class="page" id="page4">
+        <h2>Why You Are Special! ✨</h2>
+        <p>Neeche cards par tap karke dekho main tumse kyu itna pyaar karta hoon:</p>
+
+        <div class="reason-card" onclick="alert('Tumhari hassi duniya ki sabse pyari cheez hai! 😍')">1. Your Smile ❤️ (Tap to see)</div>
+        <div class="reason-card" onclick="alert('Tum har situation me mera sath deti ho! 🤝')">2. Your Kindness 🌟 (Tap to see)</div>
+        <div class="reason-card" onclick="alert('Mera poora din tumse baat karke hi achha banta hai! 📞')">3. How You Care 🥰 (Tap to see)</div>
+        <div class="reason-card" onclick="alert('Simbly because you are YOU! Perfectly Perfect. 💖')">4. Just Being You 👸 (Tap to see)</div>
+
+        <div class="footer-nav">
+            <button class="btn-nav btn-small" onclick="nextPage(3)">⬅️ Back</button>
+            <button class="btn-nav" onclick="nextPage(5)">Next: Make a Wish ➔</button>
+        </div>
+    </div>
+
+    <!-- PAGE 5: Virtual Birthday Cake -->
+    <div class="page" id="page5">
+        <h2>Make a Wish & Blow Candles! 🎂</h2>
+        <p>Cake par click karke candles bujhaao aur ek pyaari si wish maango!</p>
+
+        <div class="cake" id="cakeEmoji" onclick="blowCandle()">🎂</div>
+        <p id="wishText" style="font-weight: bold; color: #d81b60;"></p>
+
+        <div class="footer-nav">
+            <button class="btn-nav btn-small" onclick="nextPage(4)">⬅️ Back</button>
+            <button class="btn-nav" onclick="nextPage(6)">Next: Special Gift ➔</button>
+        </div>
+    </div>
+
+    <!-- PAGE 6: Birthday Love Coupons -->
+    <div class="page" id="page6">
+        <h2>Your Birthday Coupons 🎟️</h2>
+        <p>Ye coupons sirf aapke liye hain! Aap inko kabhi bhi redeem kar sakti ho:</p>
+
+        <div class="coupon">🎁 1x Unlimited Hugs & Kisses</div>
+        <div class="coupon">🍦 1x Late Night Ice Cream Date</div>
+        <div class="coupon">🎬 1x Movie Night Choice (No arguing from my side!)</div>
+        <div class="coupon">👑 1x "I Win Any Argument" Pass</div>
+
+        <h3 style="margin-top: 15px; color: #d81b60;">I Love You So Much! ❤️</h3>
+
+        <div class="footer-nav">
+            <button class="btn-nav btn-small" onclick="nextPage(5)">⬅️ Back</button>
+            <button class="btn-nav" onclick="nextPage(1)">Replay 🔄</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function nextPage(pageNumber) {
+        let pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.remove('active'));
+        document.getElementById('page' + pageNumber).classList.add('active');
+    }
+
+    function openLetter() {
+        let letter = document.getElementById('secretLetter');
+        if (letter.style.display === "block") {
+            letter.style.display = "none";
+        } else {
+            letter.style.display = "block";
+        }
+    }
+
+    function blowCandle() {
+        document.getElementById('cakeEmoji').innerText = "🍰";
+        document.getElementById('wishText').innerText = "Yay! Aapki sabhi wishes poori ho! Happy Birthday! 🎉💖";
+    }
+</script>
+
+</body>
+</html>
